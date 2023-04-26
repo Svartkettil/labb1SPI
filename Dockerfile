@@ -3,7 +3,7 @@ WORKDIR /app
 COPY . .
 RUN mvn clean package
 
-FROM eclipse-temurin:19-jre-alpine
+FROM eclipse-temurin:19-jre-jammy
 WORKDIR /app
 COPY --from=build /app/consumer/target/consumer-1.0-SNAPSHOT.jar /app/consumer.jar
 COPY --from=build /app/service/target/service-1.0-SNAPSHOT.jar /app/service.jar
